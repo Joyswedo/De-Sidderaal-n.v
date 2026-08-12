@@ -1,49 +1,25 @@
 <!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0b1622">
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icons/icon-180.png">
-  <link rel="stylesheet" href="style.css">
-  <title>Admin — The Sidderaal N.V.</title>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1622"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icons/icon-180.png"><link rel="stylesheet" href="style.css"><title>Admin — The Sidderaal N.V.</title>
 </head>
 <body>
-  <header class="topbar"><div class="brand"><img src="icons/icon-192.png" alt=""><span>The Sidderaal <small>Admin</small></span></div><a class="btn ghost" href="index.html">Customer App</a></header>
-  <main class="admin-wrap">
-    <div id="login" class="login-card">
-      <p class="eyebrow">BEHEEROMGEVING</p><h1>Admin Dashboard</h1>
-      <p>Demo-login voor de voorbereidende versie.</p>
-      <label>E-mail<input id="email" value="admin@sidderaal.com" type="email"></label>
-      <label>Wachtwoord<input id="password" value="Sidderaal2026!" type="password"></label>
-      <button class="btn primary full" onclick="login()">Inloggen</button>
-      <p id="loginMsg" class="form-msg"></p>
-    </div>
-    <div id="dashboard" hidden>
-      <div class="dash-head"><div><p class="eyebrow">OVERZICHT</p><h1>Boekingen</h1></div><button class="btn ghost" onclick="logout()">Uitloggen</button></div>
-      <div class="stats"><div class="stat"><b id="count">0</b><span>Aanvragen</span></div><div class="stat"><b id="pending">0</b><span>In behandeling</span></div></div>
-      <div id="bookings" class="booking-list"></div>
-    </div>
-  </main>
-  <script>
-    const KEY="sidderaal_demo_bookings";
-    function login(){
-      const e=document.getElementById("email").value, p=document.getElementById("password").value;
-      if(e==="admin@sidderaal.com" && p==="Sidderaal2026!"){sessionStorage.setItem("sidderaal_admin","1");showDash();}
-      else document.getElementById("loginMsg").textContent="Onjuiste demo-inloggegevens.";
-    }
-    function logout(){sessionStorage.removeItem("sidderaal_admin");location.reload();}
-    function showDash(){document.getElementById("login").hidden=true;document.getElementById("dashboard").hidden=false;render();}
-    function render(){
-      const a=JSON.parse(localStorage.getItem(KEY)||"[]");
-      document.getElementById("count").textContent=a.length;
-      document.getElementById("pending").textContent=a.filter(x=>x.status!=="Afgerond").length;
-      const box=document.getElementById("bookings");
-      box.innerHTML=a.length?a.map((x,i)=>`<article class="booking-item"><div><b>${esc(x.name)}</b><span>${esc(x.service)} · ${esc(x.date)} · ${esc(x.time)}</span><small>${esc(x.phone)}${x.email?" · "+esc(x.email):""}</small><p>${esc(x.message||"Geen omschrijving")}</p></div><div class="status">${esc(x.status||"Nieuw")}</div></article>`).join(""):"<div class='empty'>Nog geen aanvragen. Maak er één via de Customer App.</div>";
-    }
-    function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
-    if(sessionStorage.getItem("sidderaal_admin"))showDash();
-  </script>
-</body>
-</html>
+<header class="topbar"><div class="brand"><img src="icons/icon-192.png" alt="The Sidderaal logo"><span>The Sidderaal <small>Admin</small></span></div><div class="top-actions"><div class="lang-switch"><button type="button" data-lang="nl">NL</button><button type="button" data-lang="en">EN</button></div><a class="btn ghost" href="index.html" data-i18n="customer">Customer App</a></div></header>
+<main class="admin-wrap">
+<div id="login" class="login-card"><p class="eyebrow" data-i18n="management">BEHEEROMGEVING</p><h1 data-i18n="dashboard">Admin Dashboard</h1><p data-i18n="demoLogin">Demo-login voor de voorbereidende versie.</p><label><span data-i18n="email">E-mail</span><input id="email" value="admin@sidderaal.com" type="email"></label><label><span data-i18n="password">Wachtwoord</span><input id="password" value="Sidderaal2026!" type="password"></label><button class="btn primary full" onclick="login()" data-i18n="login">Inloggen</button><p id="loginMsg" class="form-msg"></p></div>
+<div id="dashboard" hidden><div class="dash-head"><div><p class="eyebrow" data-i18n="overview">OVERZICHT</p><h1 data-i18n="bookings">Boekingen</h1></div><button class="btn ghost" onclick="logout()" data-i18n="logout">Uitloggen</button></div><div class="stats"><div class="stat"><b id="count">0</b><span data-i18n="requests">Aanvragen</span></div><div class="stat"><b id="pending">0</b><span data-i18n="pending">In behandeling</span></div></div><div id="bookings" class="booking-list"></div></div>
+</main>
+<script>
+const KEY="sidderaal_demo_bookings"; let lang=localStorage.getItem("sidderaal_lang")||"nl";
+const tr={nl:{customer:"Customer App",management:"BEHEEROMGEVING",dashboard:"Admin Dashboard",demoLogin:"Demo-login voor de voorbereidende versie.",email:"E-mail",password:"Wachtwoord",login:"Inloggen",overview:"OVERZICHT",bookings:"Boekingen",logout:"Uitloggen",requests:"Aanvragen",pending:"In behandeling",wrong:"Onjuiste demo-inloggegevens.",empty:"Nog geen aanvragen. Maak er één via de Customer App.",newStatus:"Nieuw",desc:"Geen omschrijving"},en:{customer:"Customer App",management:"ADMIN AREA",dashboard:"Admin Dashboard",demoLogin:"Demo login for the prepared version.",email:"Email",password:"Password",login:"Log in",overview:"OVERVIEW",bookings:"Bookings",logout:"Log out",requests:"Requests",pending:"Pending",wrong:"Incorrect demo login details.",empty:"No requests yet. Create one through the Customer App.",newStatus:"New",desc:"No description"}};
+function t(k){return tr[lang][k]||k} function apply(){document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=t(e.dataset.i18n));document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));render();}
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;localStorage.setItem('sidderaal_lang',lang);apply();}));
+function login(){const e=document.getElementById('email').value,p=document.getElementById('password').value;if(e==='admin@sidderaal.com'&&p==='Sidderaal2026!'){sessionStorage.setItem('sidderaal_admin','1');showDash();}else document.getElementById('loginMsg').textContent=t('wrong');}
+function logout(){sessionStorage.removeItem('sidderaal_admin');location.reload();}
+function showDash(){document.getElementById('login').hidden=true;document.getElementById('dashboard').hidden=false;render();}
+function render(){const a=JSON.parse(localStorage.getItem(KEY)||'[]');document.getElementById('count').textContent=a.length;document.getElementById('pending').textContent=a.filter(x=>x.status!=='Afgerond').length;const box=document.getElementById('bookings');box.innerHTML=a.length?a.map(x=>`<article class="booking-item"><div><b>${esc(x.name)}</b><span>${esc(serviceName(x.service))} · ${esc(x.date)} · ${esc(x.time)}</span><small>${esc(x.phone)}${x.email?' · '+esc(x.email):''}</small><p>${esc(x.message||t('desc'))}</p></div><div class="status">${esc(x.status||t('newStatus'))}</div></article>`).join(''):`<div class='empty'>${t('empty')}</div>`;}
+function serviceName(s){const m={water:{nl:'Waterinstallaties',en:'Water installations'},electric:{nl:'Elektrische installaties',en:'Electrical installations'},technical:{nl:'Technische service',en:'Technical service'},quote:{nl:'Offerte / inspectie',en:'Quote / inspection'}};return m[s]?m[s][lang]:s}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+apply(); if(sessionStorage.getItem('sidderaal_admin'))showDash();
+</script>
+</body></html>

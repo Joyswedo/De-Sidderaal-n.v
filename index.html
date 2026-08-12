@@ -15,67 +15,66 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><img src="icons/icon-192.png" alt=""><span>The Sidderaal <small>N.V.</small></span></div>
-    <a class="whatsapp top-wa" href="https://wa.me/5994167557?text=Hallo%20The%20Sidderaal%2C%20ik%20heb%20een%20vraag." target="_blank">WhatsApp</a>
+    <div class="brand"><img src="icons/icon-192.png" alt="The Sidderaal logo"><span>The Sidderaal <small>N.V.</small></span></div>
+    <div class="top-actions"><div class="lang-switch" aria-label="Language"><button type="button" data-lang="nl">NL</button><button type="button" data-lang="en">EN</button></div><a class="whatsapp top-wa" href="https://wa.me/5994167557" target="_blank" rel="noopener">WhatsApp</a></div>
   </header>
 
   <main>
     <section class="hero">
       <div>
-        <p class="eyebrow">INSTALLATIE & TECHNISCHE SERVICE</p>
-        <h1>Betrouwbare installaties. <span>Professionele service.</span></h1>
-        <p class="lead">The Sidderaal N.V. helpt met water, elektriciteit en technische installaties voor woning en bedrijf.</p>
+        <p class="eyebrow" data-i18n="eyebrow">INSTALLATIE & TECHNISCHE SERVICE</p>
+        <h1><span data-i18n="heroTitle1">Betrouwbare installaties.</span> <span data-i18n="heroTitle2">Professionele service.</span></h1>
+        <p class="lead" data-i18n="heroLead">The Sidderaal N.V. helpt met water, elektriciteit en technische installaties voor woning en bedrijf.</p>
         <div class="actions">
-          <a href="#afspraak" class="btn primary">Afspraak maken</a>
-          <a href="https://wa.me/5994167557?text=Hallo%20The%20Sidderaal%2C%20ik%20wil%20graag%20informatie." class="btn ghost" target="_blank">Chat via WhatsApp</a>
+          <a href="#afspraak" class="btn primary" data-i18n="bookBtn">Afspraak maken</a>
+          <a href="https://wa.me/5994167557" class="btn ghost" target="_blank" rel="noopener" data-i18n="whatsappBtn">Chat via WhatsApp</a>
         </div>
       </div>
       <div class="hero-card">
         <div class="pulse"></div>
-        <strong>Snelle service</strong>
-        <p>Vraag eenvoudig een afspraak of offerte aan.</p>
-        <div class="mini-row"><span>✓ Water</span><span>✓ Elektra</span><span>✓ Techniek</span></div>
+        <strong data-i18n="fastService">Snelle service</strong>
+        <p data-i18n="fastServiceText">Vraag eenvoudig een afspraak of offerte aan.</p>
+        <div class="mini-row"><span data-i18n="waterShort">✓ Water</span><span data-i18n="electricShort">✓ Elektra</span><span data-i18n="technicalShort">✓ Techniek</span></div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><p class="eyebrow">ONZE DIENSTEN</p><h2>Waarmee kunnen we helpen?</h2></div></div>
+      <div class="section-head"><div><p class="eyebrow" data-i18n="servicesEyebrow">ONZE DIENSTEN</p><h2 data-i18n="servicesTitle">Waarmee kunnen we helpen?</h2></div></div>
       <div class="cards">
-        <article class="card"><div class="icon">💧</div><h3>Waterinstallaties</h3><p>Installatie, onderhoud en reparatie van waterleidingen en sanitair.</p></article>
-        <article class="card"><div class="icon">⚡</div><h3>Elektrische installaties</h3><p>Veilige elektrische werkzaamheden, uitbreidingen en storingsservice.</p></article>
-        <article class="card"><div class="icon">🔧</div><h3>Technische service</h3><p>Praktische technische oplossingen voor woningen, winkels en bedrijven.</p></article>
+        <article class="card"><div class="icon">💧</div><h3 data-i18n="waterTitle">Waterinstallaties</h3><p data-i18n="waterText">Installatie, onderhoud en reparatie van waterleidingen en sanitair.</p></article>
+        <article class="card"><div class="icon">⚡</div><h3 data-i18n="electricTitle">Elektrische installaties</h3><p data-i18n="electricText">Veilige elektrische werkzaamheden, uitbreidingen en storingsservice.</p></article>
+        <article class="card"><div class="icon">🔧</div><h3 data-i18n="technicalTitle">Technische service</h3><p data-i18n="technicalText">Praktische technische oplossingen voor woningen, winkels en bedrijven.</p></article>
       </div>
     </section>
 
     <section id="afspraak" class="section booking">
       <div class="booking-copy">
-        <p class="eyebrow">AFSPRAAK AANVRAGEN</p>
-        <h2>Plan een servicebezoek</h2>
-        <p>Vul je gegevens in. Je aanvraag wordt lokaal in deze demo opgeslagen en kan daarna via WhatsApp worden doorgestuurd.</p>
-        <div class="notice">Voor een echte productieomgeving moet de demo-opslag nog worden gekoppeld aan een online database.</div>
+        <p class="eyebrow" data-i18n="bookingEyebrow">AFSPRAAK AANVRAGEN</p>
+        <h2 data-i18n="bookingTitle">Plan een servicebezoek</h2>
+        <p data-i18n="bookingText">Vul je gegevens in. Je aanvraag wordt lokaal in deze demo opgeslagen en kan daarna via WhatsApp worden doorgestuurd.</p>
+        <div class="notice" data-i18n="notice">Voor een echte productieomgeving moet de demo-opslag nog worden gekoppeld aan een online database.</div>
       </div>
       <form id="bookingForm" class="form">
-        <label>Naam<input required name="name" placeholder="Voor- en achternaam"></label>
-        <label>Telefoon<input required name="phone" type="tel" placeholder="+597 ..."></label>
-        <label>E-mail<input name="email" type="email" placeholder="naam@email.com"></label>
-        <label>Dienst<select name="service" required><option value="">Kies een dienst</option><option>Waterinstallaties</option><option>Elektrische installaties</option><option>Technische service</option><option>Offerte / inspectie</option></select></label>
-        <div class="two"><label>Voorkeursdatum<input required name="date" type="date"></label><label>Voorkeurstijd<select name="time" required><option value="">Kies</option><option>08:00 - 10:00</option><option>10:00 - 12:00</option><option>13:00 - 15:00</option><option>15:00 - 17:00</option></select></label></div>
-        <label>Omschrijving<textarea name="message" rows="4" placeholder="Vertel kort wat er nodig is..."></textarea></label>
-        <button class="btn primary full" type="submit">Aanvraag versturen</button>
+        <label><span data-i18n="nameLabel">Naam</span><input required name="name" placeholder="Voor- en achternaam" data-i18n-placeholder="namePlaceholder"></label>
+        <label><span data-i18n="phoneLabel">Telefoon</span><input required name="phone" type="tel" placeholder="+597 ..."></label>
+        <label><span data-i18n="emailLabel">E-mail</span><input name="email" type="email" placeholder="naam@email.com" data-i18n-placeholder="emailPlaceholder"></label>
+        <label><span data-i18n="serviceLabel">Dienst</span><select name="service" required><option value="" data-i18n="serviceChoose">Kies een dienst</option><option value="water" data-i18n="waterTitle">Waterinstallaties</option><option value="electric" data-i18n="electricTitle">Elektrische installaties</option><option value="technical" data-i18n="technicalTitle">Technische service</option><option value="quote" data-i18n="quoteService">Offerte / inspectie</option></select></label>
+        <div class="two"><label><span data-i18n="dateLabel">Voorkeursdatum</span><input required name="date" type="date"></label><label><span data-i18n="timeLabel">Voorkeurstijd</span><select name="time" required><option value="" data-i18n="timeChoose">Kies</option><option>08:00 - 10:00</option><option>10:00 - 12:00</option><option>13:00 - 15:00</option><option>15:00 - 17:00</option></select></label></div>
+        <label><span data-i18n="messageLabel">Omschrijving</span><textarea name="message" rows="4" placeholder="Vertel kort wat er nodig is..." data-i18n-placeholder="messagePlaceholder"></textarea></label>
+        <button class="btn primary full" type="submit" data-i18n="submitBtn">Aanvraag versturen</button>
         <p id="formMsg" class="form-msg"></p>
       </form>
     </section>
 
     <section class="section install">
       <div class="install-box">
-        <div><p class="eyebrow">IPHONE</p><h2>Zet The Sidderaal op je beginscherm</h2><p>Open deze website in Safari → Deel → <b>Zet op beginscherm</b> → Voeg toe.</p></div>
-        <a class="btn ghost" href="admin.html">Admin Dashboard</a>
+        <div><p class="eyebrow" data-i18n="iphoneEyebrow">IPHONE & ANDROID</p><h2 data-i18n="installTitle">Zet The Sidderaal op je beginscherm</h2><p data-i18n="installText">Open deze website in Safari of Chrome → Deel/Menu → Toevoegen aan beginscherm → Voeg toe.</p></div>
+        <a class="btn ghost" href="admin.html" data-i18n="adminBtn">Admin Dashboard</a>
       </div>
     </section>
   </main>
 
-  <footer><div><b>The Sidderaal N.V.</b><span>Water • Elektriciteit • Technische service</span></div><a href="https://wa.me/5994167557" target="_blank">+599 416 7557</a></footer>
-
+  <footer><div><b>The Sidderaal N.V.</b><span data-i18n="footerServices">Water • Elektriciteit • Technische service</span></div><a href="https://wa.me/5994167557" target="_blank" rel="noopener">+599 416 7557</a></footer>
   <script src="app.js"></script>
 </body>
 </html>

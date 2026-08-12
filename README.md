@@ -1,28 +1,12 @@
-# The Sidderaal N.V. — iPhone PWA
+# The Sidderaal N.V. — Bilingual PWA
 
-Kant-en-klare statische webapp voor Vercel/GitHub.
+Customer app and demo admin dashboard in Dutch and English.
 
-## Publiceren via Vercel
-Upload de inhoud van deze map naar de root van de GitHub-repository:
-`Joyswedo/De-Sidderaal-n.v.`
+## Language
+- Use the **NL / EN** switch in the top-right corner.
+- The selected language is saved on the device.
+- Booking requests store the selected language.
+- WhatsApp messages are generated in the selected language.
 
-Belangrijk: `index.html` moet direct in de root staan.
-
-Daarna zal Vercel automatisch opnieuw deployen.
-
-## iPhone
-Open de live HTTPS-link in Safari:
-Delen → Zet op beginscherm → Voeg toe.
-
-## Admin demo
-Open `/admin.html`
-
-Demo:
-- E-mail: `admin@sidderaal.com`
-- Wachtwoord: `Sidderaal2026!`
-
-## WhatsApp
-+599 416 7557
-
-## Opmerking
-De booking-demo gebruikt localStorage in de browser. Voor echte productieboekingen moet een database/API worden aangesloten.
+## Deploy
+Upload the contents of this package to the root of the GitHub repository connected to Vercel.
